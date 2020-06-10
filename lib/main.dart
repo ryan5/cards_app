@@ -15,18 +15,28 @@ void main() {
   );
 }
 
-class CardsPage extends StatelessWidget {
+class CardsPage extends StatefulWidget {
+  @override
+  _CardsPageState createState() => _CardsPageState();
+}
+
+class _CardsPageState extends State<CardsPage> {
+  var leftcard = '2H';
+  var rightcard = 'AH';
   @override
   Widget build(BuildContext context) {
+
     return Center(
       child: Row(
         children: [
           Expanded(
             child: FlatButton(
               onPressed: (){
-                print('left card pressed.');
+                setState(() {
+                  leftcard = '3S';
+                });
               },
-              child: Image.asset('images/2H.png'),
+              child: Image.asset('images/$leftcard.png'),
             ),
           ),
           Expanded(
@@ -34,7 +44,7 @@ class CardsPage extends StatelessWidget {
               onPressed: (){
                 print('right card pressed.');
               },
-              child: Image.asset('images/2S.png'),
+              child: Image.asset('images/$rightcard.png'),
             ),
           ),
         ],
@@ -42,3 +52,4 @@ class CardsPage extends StatelessWidget {
     );
   }
 }
+
