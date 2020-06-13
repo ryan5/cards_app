@@ -22,7 +22,7 @@ class CardsPage extends StatefulWidget {
 
 class _CardsPageState extends State<CardsPage> {
   var leftcard = '2H';
-  var rightcard = 'AH';
+  var rightcard = '3H';
   @override
   Widget build(BuildContext context) {
 
@@ -33,7 +33,7 @@ class _CardsPageState extends State<CardsPage> {
             child: FlatButton(
               onPressed: (){
                 setState(() {
-                  leftcard = '3S';
+                  leftcard = 'AC';
                 });
               },
               child: Image.asset('images/$leftcard.png'),
@@ -42,7 +42,9 @@ class _CardsPageState extends State<CardsPage> {
           Expanded(
             child: FlatButton(
               onPressed: (){
-                print('right card pressed.');
+                setState(() {
+                  rightcard = 'AS';
+                });
               },
               child: Image.asset('images/$rightcard.png'),
             ),
