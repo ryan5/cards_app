@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
@@ -21,8 +22,16 @@ class CardsPage extends StatefulWidget {
 }
 
 class _CardsPageState extends State<CardsPage> {
-  var leftcard = '2H';
-  var rightcard = '3H';
+  int leftCard = 1;
+  int rightCard = 1;
+
+  void changeCardFace(){
+    setState(() {
+      leftCard = Random().nextInt(52)+1;
+      rightCard = Random().nextInt(52)+1;
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -32,21 +41,17 @@ class _CardsPageState extends State<CardsPage> {
           Expanded(
             child: FlatButton(
               onPressed: (){
-                setState(() {
-                  leftcard = 'AC';
-                });
+                changeCardFace();
               },
-              child: Image.asset('images/$leftcard.png'),
+              child: Image.asset('images/$leftCard.png'),
             ),
           ),
           Expanded(
             child: FlatButton(
               onPressed: (){
-                setState(() {
-                  rightcard = 'AS';
-                });
+                changeCardFace();
               },
-              child: Image.asset('images/$rightcard.png'),
+              child: Image.asset('images/$rightCard.png'),
             ),
           ),
         ],
