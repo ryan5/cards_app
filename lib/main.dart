@@ -22,8 +22,8 @@ class CardsPage extends StatefulWidget {
 }
 
 class _CardsPageState extends State<CardsPage> {
-  int leftCard = 1;
-  int rightCard = 1;
+  int leftCard = 0;
+  int rightCard = 0;
 
   void changeCardFace(){
     setState(() {
